@@ -212,7 +212,7 @@ export const NavbarLogo = () => {
       className="group relative z-20 mr-4 flex items-center space-x-2 px-0 py-1 text-xs font-normal text-black"
     >
       <img
-        src="/img/logo_zh.jpeg"
+        src="/img/logo_n.png"
         alt="Logo Zolla"
         width={30}
         height={30}
@@ -229,10 +229,10 @@ export const NavbarLogo = () => {
         {/* Nama utama */}
         <span className="text-black dark:text-white font-bold tracking-wide transition-all duration-300 group-hover:text-sm group-hover:font-medium group-hover:leading-snug">
           {/* Short name (default) */}
-          <span className="group-hover:hidden">ZOLLAHRP</span>
+          <span className="group-hover:hidden">GIZIKU</span>
           {/* Full name (on hover) */}
           <span className="hidden group-hover:inline text-xs relative top-[5px]">
-            Zolla Perdana
+            Giziku
           </span>
         </span>
       </div>

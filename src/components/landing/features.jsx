@@ -30,7 +30,6 @@ export default function Features() {
       </h2>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-        {/* Gambar Kiri */}
         <div className="flex justify-center">
           <Image
             src="/img/fitur.png"
@@ -41,7 +40,6 @@ export default function Features() {
           />
         </div>
 
-        {/* List Fitur */}
         <div className="space-y-6">
           {features.map((fitur, index) => (
             <div

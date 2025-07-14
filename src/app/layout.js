@@ -27,7 +27,7 @@ export default function RootLayout({ children }) {
         <div className="fixed top-0 left-0 w-full h-16 z-40 bg-gradient-to-b pointer-events-none" />
         <Navbar />
         {children}
-        {/* <Footer /> */}
+        <Footer />
       </body>
     </html>
   );

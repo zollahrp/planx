@@ -14,7 +14,6 @@ export default function Team() {
   return (
     <section id="team" className="bg-[#FFFFFF] py-20">
       <div className="max-w-screen-xl mx-auto px-8 lg:px-20 text-center">
-        {/* Judul */}
         <h2 className="text-3xl sm:text-4xl font-bold text-[#2AD882] mb-2">
           Tim Pengembang <br /> Giziku
         </h2>
@@ -23,7 +22,6 @@ export default function Team() {
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
         </p>
 
-        {/* Grid Card */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
           {team.map((member, i) => (
             <div

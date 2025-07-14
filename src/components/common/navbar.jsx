@@ -1,5 +1,5 @@
 "use client";
-import { usePathname } from "next/navigation"; // <--- Tambahin ini
+import { usePathname } from "next/navigation"; 
 
 import {
   Navbar as RootNavbar,
@@ -26,7 +26,7 @@ const navLinks = [
 ];
 
 export default function Navbar() {
-  const pathname = usePathname(); // <--- Tambahin ini
+  const pathname = usePathname(); 
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeHash, setActiveHash] = useState("#home");
 
@@ -42,7 +42,7 @@ export default function Navbar() {
     }
 
     const target = document.getElementById(id);
-    if (!target) return; // Hindari error offsetTop
+    if (!target) return;
 
     const yOffset = -window.innerHeight / 12;
     const targetPosition =
@@ -78,7 +78,6 @@ export default function Navbar() {
 
     const isLandingPage = window.location.pathname === "/";
 
-    // Kalau bukan landing page, reset activeHash & stop scroll spy
     if (!isLandingPage) {
       setActiveHash(null);
       return;
