@@ -6,7 +6,8 @@ import {
   AnimatePresence,
   useScroll,
   useMotionValueEvent,
-} from "motion/react";
+// } from "motion/react";
+} from "framer-motion";
 
 import React, { useRef, useState } from "react";
 
@@ -111,7 +112,7 @@ export const NavItems = ({
             <span
               className={cn(
                 "relative z-20 transition-colors duration-300",
-                isActive && "text-[#FD853A] font-semibold"
+                isActive && "text-[#2AD882] font-semibold"
               )}
             >
               {item.name}

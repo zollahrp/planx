@@ -17,13 +17,12 @@ import { useState, useEffect } from "react";
 
 const navLinks = [
   { name: "Home", href: "home" },
-  { name: "Services", href: "service" },
-  { name: "About", href: "about" },
-  { name: "Skills", href: "skills" },
-  { name: "Portfolio", href: "portfolio" },
-  { name: "Achievement", href: "achievement" },
-  { name: "Contact", href: "contact" },
-  // { name: "Blogs", href: "blogs" },
+  { name: "Langkah", href: "steps" },
+  { name: "Fitur", href: "features" },
+  { name: "Tampilan", href: "showcase" },
+  { name: "FAQ", href: "faq" },
+  { name: "Tim", href: "team" },
+  { name: "Kontak", href: "contact" },
 ];
 
 export default function Navbar() {
@@ -147,9 +146,9 @@ export default function Navbar() {
           <div className="flex items-center gap-4">
             <NavbarButton
               variant="primary"
-              onClick={() => handleScroll("blogs")}
+              onClick={() => handleScroll("contact")}
             >
-              Blogs
+              Download
             </NavbarButton>
           </div>
         </NavBody>
@@ -177,7 +176,7 @@ export default function Navbar() {
                 }}
                 className={`relative text-neutral-600 dark:text-neutral-300 ${
                   activeHash === `#${item.href}`
-                    ? "font-semibold text-[#FD853A]"
+                    ? "font-semibold text-[#2AD882]"
                     : ""
                 }`}
               >
@@ -190,7 +189,7 @@ export default function Navbar() {
                   variant="primary"
                   onClick={() => handleScroll("blogs")}
                   className={
-                    activeHash === "#blogs" ? "ring-2 ring-[#FD853A]" : ""
+                    activeHash === "#blogs" ? "ring-2 ring-[#2AD882]" : ""
                   }
                 >
                   Blogs
