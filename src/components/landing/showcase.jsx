@@ -59,7 +59,7 @@ const getPositionClass = (index) => {
         </p>
 
         {/* Carousel */}
-        <div className="relative flex items-center justify-center h-[590px]">
+        <div className="relative flex items-center justify-center h-[550px]">
           {images.map((src, index) => (
             <div
               key={index}
