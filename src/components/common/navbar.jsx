@@ -1,5 +1,5 @@
 "use client";
-import { usePathname } from "next/navigation"; 
+import { usePathname } from "next/navigation";
 
 import {
   Navbar as RootNavbar,
@@ -26,8 +26,18 @@ const navLinks = [
 ];
 
 export default function Navbar() {
-  const pathname = usePathname(); 
+  const pathname = usePathname();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 80); // 80px scroll
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   const [activeHash, setActiveHash] = useState("#home");
 
   const handleScroll = (id) => {
@@ -132,9 +142,10 @@ export default function Navbar() {
     <div className="relative w-full">
       <RootNavbar className="fixed top-0 left-0 z-50 w-full">
         {/* Desktop Navigation */}
-        <NavBody>
-          <NavbarLogo />
+        <NavBody visible={isScrolled}>
+          <NavbarLogo visible={isScrolled} />
           <NavItems
+            visible={isScrolled}
             items={navLinks.map((link) => ({
               name: link.name,
               link: `#${link.href}`,
@@ -173,11 +184,10 @@ export default function Navbar() {
                   handleScroll(item.href);
                   setIsMobileMenuOpen(false);
                 }}
-                className={`relative text-neutral-600 dark:text-neutral-300 ${
-                  activeHash === `#${item.href}`
+                className={`relative text-neutral-600 dark:text-neutral-300 ${activeHash === `#${item.href}`
                     ? "font-semibold text-[#2AD882]"
                     : ""
-                }`}
+                  }`}
               >
                 <span className="block">{item.name}</span>
               </a>
@@ -201,3 +211,4 @@ export default function Navbar() {
     </div>
   );
 }
+

@@ -6,7 +6,7 @@ import {
   AnimatePresence,
   useScroll,
   useMotionValueEvent,
-// } from "motion/react";
+  // } from "motion/react";
 } from "framer-motion";
 
 import React, { useRef, useState } from "react";
@@ -34,7 +34,6 @@ export const Navbar = ({
   return (
     <motion.div
       ref={ref}
-      // IMPORTANT: Change this to class of `fixed` if you want the navbar to be fixed
       className={cn("sticky inset-x-0 top-20 z-40 w-full", className)}>
       {React.Children.map(children, (child) =>
         React.isValidElement(child)
@@ -81,6 +80,7 @@ export const NavItems = ({
   items,
   className,
   onItemClick,
+  visible,
 }) => {
   const [hovered, setHovered] = useState(null);
 
@@ -88,7 +88,8 @@ export const NavItems = ({
     <motion.div
       onMouseLeave={() => setHovered(null)}
       className={cn(
-        "absolute inset-0 hidden flex-1 flex-row items-center justify-center space-x-2 text-sm font-medium text-zinc-600 transition duration-200 hover:text-zinc-800 lg:flex lg:space-x-2",
+        "absolute inset-0 hidden flex-1 flex-row items-center justify-center space-x-2 text-sm font-medium transition duration-200 lg:flex lg:space-x-2",
+        visible ? "text-zinc-600 hover:text-zinc-800" : "text-white hover:text-white",
         className
       )}
     >
@@ -101,7 +102,10 @@ export const NavItems = ({
             key={`link-${idx}`}
             onClick={item.onClick}
             onMouseEnter={() => setHovered(idx)}
-            className="relative px-4 py-2 text-neutral-600 dark:text-neutral-300"
+            className={cn(
+              "relative px-4 py-2",
+              visible ? "text-neutral-600 dark:text-neutral-300" : "text-white"
+            )}
           >
             {(isHovered || isActive) && (
               <motion.div
@@ -123,7 +127,6 @@ export const NavItems = ({
     </motion.div>
   );
 };
-
 
 export const MobileNav = ({
   children,
@@ -205,13 +208,14 @@ export const MobileNavToggle = ({
   );
 };
 
-export const NavbarLogo = () => {
+export const NavbarLogo = ({ visible }) => {
   return (
     <a
       href="#"
-      className="group relative z-20 mr-4 flex items-center space-x-2 px-0 py-1 text-xs font-normal text-black"
+      className="group relative z-20 mr-4 flex items-center space-x-2 px-0 py-1 text-xs font-normal"
     >
       <img
+        // src="/img/logo_hitam.png"
         src="/img/logo_n.png"
         alt="Logo Zolla"
         width={30}
@@ -219,18 +223,17 @@ export const NavbarLogo = () => {
         className="rounded-full object-cover"
       />
 
-      {/* Teks dengan animasi */}
       <div className="relative flex flex-col leading-tight">
-        {/* Website (animasi muncul di atas) */}
         <span className="absolute top-0 left-0 text-[10px] text-neutral-500 opacity-0 group-hover:opacity-100 group-hover:-translate-y-1 transition-all duration-300">
           Website
         </span>
 
-        {/* Nama utama */}
-        <span className="text-black dark:text-white font-bold tracking-wide transition-all duration-300 group-hover:text-sm group-hover:font-medium group-hover:leading-snug">
-          {/* Short name (default) */}
+        <span
+          className={`${
+            visible ? "text-black" : "text-white"
+          } font-bold tracking-wide transition-all duration-300 group-hover:text-sm group-hover:font-medium group-hover:leading-snug`}
+        >
           <span className="group-hover:hidden">GIZIKU</span>
-          {/* Full name (on hover) */}
           <span className="hidden group-hover:inline text-xs relative top-[5px]">
             Giziku
           </span>
