@@ -34,9 +34,10 @@ export default function Features() {
           <Image
             src="/img/fitur.png"
             alt="Fitur App"
-            width={400}
-            height={400}
-            className="w-full max-w-md"
+            width={600}
+            height={600}
+            // className="w-full max-w-2xl"
+            className="w-full max-w-[1200px] lg:scale-115 transition-transform duration-300"
           />
         </div>
 

@@ -11,7 +11,7 @@ export default function Home() {
       className="bg-[#2AD882] text-white relative overflow-hidden h-screen"
     >
       <div className="absolute inset-0 flex items-center z-10">
-        <div className="max-w-screen-2xl mx-auto px-8 lg:px-20 grid grid-cols-1 md:grid-cols-5 items-center gap-12 w-full">
+        <div className="max-w-screen-xl mx-auto px-8 lg:px-20 grid grid-cols-1 md:grid-cols-5 items-center gap-12 w-full">
           {/* Kolom Kiri */}
           <div className="md:col-span-3 space-y-6">
             <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight">
